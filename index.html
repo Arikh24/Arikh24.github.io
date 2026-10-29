@@ -7,25 +7,25 @@
 <meta name="description" content="Portfolio of Arikh Bin Eden, a Computer Science and Engineering student at AIUB working with Next.js, NestJS and PostgreSQL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
-  --bg:#eef2f6; --surface:#ffffff; --ink:#14213d; --muted:#556079; --line:#d5dce6; --accent:#1f7a4d; --accent-ink:#ffffff; --grass:#cfe6d8;
+  --bg:hsl(228 40% 98%); --surface:hsl(0 0% 100%); --ink:hsl(232 40% 14%); --muted:hsl(230 14% 38%); --line:hsl(228 25% 88%); --accent:hsl(232 60% 48%); --accent-ink:#ffffff; --gold:hsl(40 95% 45%); --grass:hsl(150 25% 92%);
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#0f1624; --surface:#172033; --ink:#e8edf6; --muted:#9aa6bd; --line:#2a3650; --accent:#4fc08a; --accent-ink:#0f1624; --grass:#1c3a2d;}
+  :root:not([data-theme="light"]){--bg:hsl(232 40% 9%); --surface:hsl(232 34% 13%); --ink:hsl(230 50% 95%); --muted:hsl(230 20% 70%); --line:hsl(232 25% 22%); --accent:hsl(232 90% 76%); --accent-ink:hsl(232 40% 9%); --gold:hsl(40 100% 63%); --grass:hsl(160 22% 14%);}
 }
-:root[data-theme="dark"]{--bg:#0f1624; --surface:#172033; --ink:#e8edf6; --muted:#9aa6bd; --line:#2a3650; --accent:#4fc08a; --accent-ink:#0f1624; --grass:#1c3a2d;}
+:root[data-theme="dark"]{--bg:hsl(232 40% 9%); --surface:hsl(232 34% 13%); --ink:hsl(230 50% 95%); --muted:hsl(230 20% 70%); --line:hsl(232 25% 22%); --accent:hsl(232 90% 76%); --accent-ink:hsl(232 40% 9%); --gold:hsl(40 100% 63%); --grass:hsl(160 22% 14%);}
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;font-size:17px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;font-size:17px}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
 .wrap{max-width:880px;margin:0 auto;padding:0 24px}
-header.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:16px;flex-wrap:wrap}
+header.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:9;background:var(--bg);box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax);border-bottom:1px solid var(--line)}
 .nav b{font-family:"Bricolage Grotesque",Georgia,sans-serif;font-size:1.1rem}
 .nav nav{display:flex;gap:20px;flex-wrap:wrap}
 .nav nav a{text-decoration:none;color:var(--muted);font-weight:500}
@@ -38,8 +38,11 @@ h1{font-family:"Bricolage Grotesque",Georgia,sans-serif;font-weight:800;font-siz
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .btn:hover{opacity:.88}
 .pitch{margin:36px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--grass)}
-.pitch canvas{display:block;width:100%;height:140px}
-section{padding:56px 0 8px}
+.pitch canvas{display:block;width:100%;height:180px}
+section{padding:72px 0 64px;--accent:var(--tint);--band:color-mix(in srgb,var(--tint) 10%,var(--bg));background:var(--band);box-shadow:0 0 0 100vmax var(--band);clip-path:inset(0 -100vmax)}
+#about{--tint:hsl(232 60% 48%);--tint-d:hsl(232 90% 76%)}#skills{--tint:hsl(214 70% 42%);--tint-d:hsl(214 90% 68%)}#projects{--tint:hsl(250 55% 52%);--tint-d:hsl(250 90% 78%)}#experience{--tint:hsl(232 60% 48%);--tint-d:hsl(232 90% 76%)}#education{--tint:hsl(214 70% 42%);--tint-d:hsl(214 90% 68%)}#contact{--tint:hsl(232 60% 48%);--tint-d:hsl(232 90% 76%);--band:hsl(232 45% 14%);--ink:hsl(230 50% 95%);--muted:hsl(230 20% 76%);--surface:hsl(232 34% 22%);--line:hsl(232 25% 34%);--accent:hsl(232 90% 82%);--accent-ink:hsl(232 45% 12%);color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) section{--band:color-mix(in srgb,var(--tint-d) 14%,var(--bg));--accent:var(--tint-d)}}
+:root[data-theme="dark"] section{--band:color-mix(in srgb,var(--tint-d) 14%,var(--bg));--accent:var(--tint-d)}
 h2{font-family:"Bricolage Grotesque",Georgia,sans-serif;font-size:1.9rem;margin:0 0 20px;letter-spacing:-.01em}
 p{max-width:68ch}
 .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
@@ -59,7 +62,33 @@ p{max-width:68ch}
 .edu span{color:var(--muted)}
 footer{padding:64px 0 48px;color:var(--muted);font-size:.95rem}
 .contact a{font-weight:600}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.w{display:inline-block;opacity:0;transform:translateY(.5em);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i)*90ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+.now{margin:-8px 0 28px;font-weight:500}
+#typed{color:var(--accent);font-weight:600}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--accent);vertical-align:-.2em;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hint{margin:10px 0 0;color:var(--muted);font-size:.9rem}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal .tags li{opacity:0;transform:scale(.8)}
+.reveal.in .tags li{opacity:1;transform:none;transition:opacity .4s ease,transform .4s cubic-bezier(.3,1.4,.5,1);transition-delay:calc(var(--i,0)*45ms + 250ms)}
+.item,.skills div{box-shadow:0 4px 20px -4px hsl(220 20% 10% / .08);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.item:hover,.skills div:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 40px -8px hsl(220 20% 10% / .15)}
+.btn{transition:transform .2s ease,opacity .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.small{padding:7px 14px;font-size:.92rem}
+.nav nav{align-items:center}
+.tbtn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;font:inherit;font-size:.92rem}
+.tbtn:hover{border-color:var(--accent)}
+.about{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+.avatar{width:168px;height:168px;border-radius:50%;border:4px solid var(--gold);background:var(--surface);display:grid;place-items:center;font-family:"Bricolage Grotesque",Georgia,sans-serif;font-weight:800;font-size:3rem;color:var(--accent);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.nav b,h1,h2,.avatar{font-family:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1{font-weight:700}
+@media (max-width:620px){.about{grid-template-columns:1fr}}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--gold));transform:scaleX(0);transform-origin:left;z-index:10}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.w,.reveal,.reveal .tags li{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}.caret{animation:none}}
 </style>
 </head>
 <body>
@@ -67,25 +96,28 @@ footer{padding:64px 0 48px;color:var(--muted);font-size:.95rem}
   <header class="nav">
     <b>Arikh Bin Eden</b>
     <nav aria-label="Main">
-      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a><a class="btn primary small" id="resumeBtn" href="resume.pdf" download>Résumé ↓</a><button class="tbtn" id="themeBtn" type="button">Theme</button>
     </nav>
   </header>
 
   <main>
     <div class="hero">
-      <h1>I build web apps from the database up.</h1>
+      <h1 id="title">I build web apps from the database up.</h1>
       <p class="lede">I’m a Computer Science and Engineering student at AIUB, working with Next.js, NestJS and PostgreSQL.</p>
+      <p class="now">Right now I’m exploring <span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
       <div class="btns">
         <a class="btn primary" href="#projects">See my work</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
-      <div class="pitch" aria-hidden="true"><canvas id="pitch"></canvas></div>
+      <div class="pitch"><canvas id="pitch" aria-hidden="true"></canvas></div>
+      <p class="hint">Move your mouse or tap the pitch to play with the ball.</p>
     </div>
 
     <section id="about">
       <h2>About</h2>
+      <div class="about"><div class="avatar" id="avatar" aria-label="Photo of Arikh"></div><div>
       <p>I’m an undergraduate student in Computer Science and Engineering at American International University-Bangladesh. I work in C++, C# and JavaScript, and I’m building my full stack skills with Next.js, NestJS and SQL databases.</p>
-      <p>My first project was a 2D OpenGL animation, which taught me how to break a big idea into small, working pieces. Away from the screen, I play football.</p>
+      <p>My first project was a 2D OpenGL animation, which taught me how to break a big idea into small, working pieces. Away from the screen, I play football.</p></div></div>
     </section>
 
     <section id="skills">
@@ -124,7 +156,8 @@ const DATA = {
   email: "arikhbin075@gmail.com",
   github: "https://github.com/Arikh24",
   linkedin: "https://www.linkedin.com/in/arikh-bin-eden/",
-  resume: "",     // optional: link to your résumé PDF
+  resume: "resume.pdf", // upload your résumé PDF to the same GitHub repo with exactly this name. Set to "" to hide the button.
+  photo: "photo.jpg",      // upload a photo (for example photo.jpg) to the repo, then write its name here. Until then, your initials show.
 
   skills: {
     "Languages": ["C++", "C#", "JavaScript", "SQL", "Assembly"],
@@ -186,16 +219,73 @@ const contact = [
   { label: "Email me", href: "mailto:" + DATA.email, primary: true },
   { label: "GitHub", href: DATA.github },
   { label: "LinkedIn", href: DATA.linkedin },
-  { label: "Résumé", href: DATA.resume }
+  { label: "Download résumé", href: DATA.resume }
 ].filter(l => l.href);
 contact.forEach(l => { const a = el("a", "btn" + (l.primary ? " primary" : ""), esc(l.label)); a.href = l.href; if (!l.href.startsWith("mailto")) { a.target = "_blank"; a.rel = "noopener"; } $("contactLinks").appendChild(a); });
 $("yr").textContent = new Date().getFullYear();
+
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* Theme toggle: light and dark, remembered between visits */
+(function () {
+  const root = document.documentElement, tb = $("themeBtn");
+  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const paint = () => { tb.textContent = isDark() ? "☀ Light" : "☾ Dark"; tb.setAttribute("aria-label", isDark() ? "Switch to light theme" : "Switch to dark theme"); };
+  try { const s = localStorage.getItem("theme"); if (s === "light" || s === "dark") root.dataset.theme = s; } catch (e) {}
+  tb.addEventListener("click", () => { const n = isDark() ? "light" : "dark"; root.dataset.theme = n; try { localStorage.setItem("theme", n); } catch (e) {} paint(); });
+  paint();
+})();
+
+/* Résumé button and profile photo */
+(function () {
+  const rb = $("resumeBtn");
+  if (DATA.resume) rb.href = DATA.resume; else rb.hidden = true;
+  const av = $("avatar");
+  av.textContent = "AB";
+  if (DATA.photo) { const im = new Image(); im.alt = "Arikh Bin Eden"; im.onload = () => { av.textContent = ""; av.appendChild(im); }; im.src = DATA.photo; }
+})();
+
+/* Headline: words rise in one by one */
+(function () {
+  if (calm) return;
+  const h = $("title");
+  h.innerHTML = h.textContent.split(" ").map((w, i) => `<span class="w" style="--i:${i}">${esc(w)}</span>`).join(" ");
+})();
+
+/* Typing line */
+(function () {
+  const out = $("typed"), words = ["Next.js", "NestJS", "PostgreSQL", "OpenGL", "C++"];
+  if (calm) { out.textContent = words[0]; return; }
+  let wi = 0, ci = 0, del = false;
+  (function tick() {
+    const word = words[wi];
+    out.textContent = word.slice(0, ci);
+    if (!del && ci === word.length) { del = true; return setTimeout(tick, 1400); }
+    if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; }
+    ci += del ? -1 : 1;
+    setTimeout(tick, del ? 50 : 90);
+  })();
+})();
+
+/* Scroll progress bar and section reveal */
+(function () {
+  const bar = el("div", "progress");
+  document.body.appendChild(bar);
+  addEventListener("scroll", () => { const m = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${m > 0 ? scrollY / m : 0})`; }, { passive: true });
+  if (calm || !("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll("main section > *").forEach(s => {
+    s.classList.add("reveal");
+    s.querySelectorAll(".tags li").forEach((li, i) => li.style.setProperty("--i", i));
+    io.observe(s);
+  });
+})();
 
 /* Hero: a small 2D scene with a bouncing football */
 (function () {
   const c = $("pitch"), ctx = c.getContext("2d");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let w, h, t = 0;
+  let w, h, t = 0, cx = 0, tx = 0, kick = 0;
   const size = () => { const r = devicePixelRatio || 1; w = c.clientWidth; h = c.clientHeight; c.width = w * r; c.height = h * r; ctx.setTransform(r, 0, 0, r, 0, 0); };
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   function draw() {
@@ -204,9 +294,10 @@ $("yr").textContent = new Date().getFullYear();
     ctx.strokeStyle = acc; ctx.globalAlpha = .5; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(0, ground + 14); ctx.lineTo(w, ground + 14); ctx.stroke();
     ctx.beginPath(); ctx.arc(w * .5, ground + 14, 46, Math.PI, 0); ctx.stroke(); ctx.globalAlpha = 1;
-    const x = w * .5 + Math.sin(t * .6) * (w * .32);
-    const y = ground - Math.abs(Math.sin(t * 2.2)) * 78;
-    const k = 1 - (ground - y) / 140;
+    cx += (tx - cx) * .06; kick *= .96;
+    const x = cx + Math.sin(t * .6) * (w * .1);
+    const y = ground - Math.abs(Math.sin(t * 2.2)) * (78 + kick);
+    const k = Math.max(.25, 1 - (ground - y) / 180);
     ctx.fillStyle = ink; ctx.globalAlpha = .18;
     ctx.beginPath(); ctx.ellipse(x, ground + 16, 18 * k, 4 * k, 0, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
     ctx.save(); ctx.translate(x, y); ctx.rotate(t * 3);
@@ -217,7 +308,12 @@ $("yr").textContent = new Date().getFullYear();
     ctx.closePath(); ctx.fill(); ctx.restore();
   }
   function loop() { t += .016; draw(); requestAnimationFrame(loop); }
-  size(); addEventListener("resize", () => { size(); draw(); });
+  size(); tx = cx = w * .5;
+  addEventListener("resize", () => { size(); tx = cx = w * .5; draw(); });
+  c.style.cursor = "pointer";
+  c.addEventListener("pointermove", e => { tx = e.clientX - c.getBoundingClientRect().left; });
+  c.addEventListener("pointerleave", () => { tx = w * .5; });
+  c.addEventListener("pointerdown", () => { kick = 50; });
   if (reduce) { t = 1.1; draw(); } else loop();
 })();
 </script>
