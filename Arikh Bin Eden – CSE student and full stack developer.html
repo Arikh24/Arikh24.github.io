@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arikh Bin Eden – CSE student and full stack developer</title>
+<meta name="description" content="Portfolio of Arikh Bin Eden, a Computer Science and Engineering student at AIUB working with Next.js, NestJS and PostgreSQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#eef2f6; --surface:#ffffff; --ink:#14213d; --muted:#556079; --line:#d5dce6; --accent:#1f7a4d; --accent-ink:#ffffff; --grass:#cfe6d8;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0f1624; --surface:#172033; --ink:#e8edf6; --muted:#9aa6bd; --line:#2a3650; --accent:#4fc08a; --accent-ink:#0f1624; --grass:#1c3a2d;}
+}
+:root[data-theme="dark"]{--bg:#0f1624; --surface:#172033; --ink:#e8edf6; --muted:#9aa6bd; --line:#2a3650; --accent:#4fc08a; --accent-ink:#0f1624; --grass:#1c3a2d;}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;font-size:17px}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+header.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:16px;flex-wrap:wrap}
+.nav b{font-family:"Bricolage Grotesque",Georgia,sans-serif;font-size:1.1rem}
+.nav nav{display:flex;gap:20px;flex-wrap:wrap}
+.nav nav a{text-decoration:none;color:var(--muted);font-weight:500}
+.nav nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 24px}
+h1{font-family:"Bricolage Grotesque",Georgia,sans-serif;font-weight:800;font-size:clamp(2.4rem,7vw,4.4rem);line-height:1.02;margin:0 0 20px;letter-spacing:-.02em}
+.lede{font-size:1.2rem;color:var(--muted);max-width:56ch;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{opacity:.88}
+.pitch{margin:36px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--grass)}
+.pitch canvas{display:block;width:100%;height:140px}
+section{padding:56px 0 8px}
+h2{font-family:"Bricolage Grotesque",Georgia,sans-serif;font-size:1.9rem;margin:0 0 20px;letter-spacing:-.01em}
+p{max-width:68ch}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.skills div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.skills h3{margin:0 0 10px;font-size:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.tags li{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.92rem}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:16px}
+.item h3{margin:0 0 4px;font-size:1.15rem}
+.item p{margin:8px 0 12px;color:var(--muted)}
+.item .links{display:flex;gap:16px;margin-top:12px;font-weight:600}
+.item .links a{color:var(--accent)}
+.empty{border-style:dashed;background:transparent}
+.empty h3{color:var(--muted)}
+.edu{display:grid;gap:12px}
+.edu div{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px}
+.edu span{color:var(--muted)}
+footer{padding:64px 0 48px;color:var(--muted);font-size:.95rem}
+.contact a{font-weight:600}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <b>Arikh Bin Eden</b>
+    <nav aria-label="Main">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>I build web apps from the database up.</h1>
+      <p class="lede">I’m a Computer Science and Engineering student at AIUB, working with Next.js, NestJS and PostgreSQL.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+      <div class="pitch" aria-hidden="true"><canvas id="pitch"></canvas></div>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>I’m an undergraduate student in Computer Science and Engineering at American International University-Bangladesh. I work in C++, C# and JavaScript, and I’m building my full stack skills with Next.js, NestJS and SQL databases.</p>
+      <p>My first project was a 2D OpenGL animation, which taught me how to break a big idea into small, working pieces. Away from the screen, I play football.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills" id="skillsGrid"></div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div id="projectList"></div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div id="expList"></div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu" id="eduList"></div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>I’m open to internships, collaborations and learning opportunities. The quickest way to reach me is email.</p>
+      <div class="btns" id="contactLinks"></div>
+    </section>
+  </main>
+
+  <footer>© <span id="yr"></span> Arikh Bin Eden</footer>
+</div>
+
+<script>
+/* ===== EDIT YOUR CONTENT HERE ===== */
+const DATA = {
+  email: "arikhbin075@gmail.com",
+  github: "https://github.com/Arikh24",
+  linkedin: "https://www.linkedin.com/in/arikh-bin-eden/",
+  resume: "",     // optional: link to your résumé PDF
+
+  skills: {
+    "Languages": ["C++", "C#", "JavaScript", "SQL", "Assembly"],
+    "Web and backend": ["HTML", "CSS", "Next.js", "NestJS"],
+    "Databases": ["PostgreSQL", "MySQL"]
+  },
+
+  /* Add new projects by copying one block. Keep the commas. */
+  projects: [
+    {
+      title: "2D OpenGL love story animation",
+      text: "A short animated story told across four scenes, built with C++ and GLUT. You switch between the scenes with the keyboard.",
+      tech: ["C++", "OpenGL", "GLUT"],
+      github: "https://github.com/Arikh24/ComputerGrapics-Project",
+      demo: ""
+    }
+    /* ,{ title:"", text:"", tech:["",""], github:"", demo:"" } */
+  ],
+  projectsPlaceholder: true, // set to false when you have enough projects
+
+  /* Add internships or jobs here. Example is commented out below. */
+  experience: [
+    /* { role:"Intern", company:"Company name", period:"Jun 2026 – Aug 2026", text:"What you did and the result." } */
+  ],
+
+  education: [
+    { name: "B.Sc. in Computer Science and Engineering (ongoing)", school: "American International University-Bangladesh (AIUB)", note: "CGPA 3.17" },
+    { name: "Higher Secondary Certificate (HSC)", school: "Police Lines School and College", note: "GPA 5.00" },
+    { name: "Secondary School Certificate (SSC)", school: "Police Lines School and College", note: "GPA 4.94" }
+  ]
+};
+/* ===== END OF EDITABLE CONTENT ===== */
+
+const $ = id => document.getElementById(id);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+for (const [group, list] of Object.entries(DATA.skills)) {
+  $("skillsGrid").appendChild(el("div", "", `<h3>${esc(group)}</h3><ul class="tags">${list.map(t => `<li>${esc(t)}</li>`).join("")}</ul>`));
+}
+
+DATA.projects.forEach(p => {
+  const links = [p.github && `<a href="${esc(p.github)}" target="_blank" rel="noopener">GitHub</a>`, p.demo && `<a href="${esc(p.demo)}" target="_blank" rel="noopener">Live demo</a>`].filter(Boolean).join("");
+  $("projectList").appendChild(el("article", "item", `<h3>${esc(p.title)}</h3><p>${esc(p.text)}</p><ul class="tags">${p.tech.map(t => `<li>${esc(t)}</li>`).join("")}</ul>${links ? `<div class="links">${links}</div>` : ""}`));
+});
+if (DATA.projectsPlaceholder) {
+  $("projectList").appendChild(el("article", "item empty", `<h3>Next project coming soon</h3><p>A full stack app is in progress. Check back soon.</p>`));
+}
+
+if (DATA.experience.length) {
+  DATA.experience.forEach(x => $("expList").appendChild(el("article", "item", `<h3>${esc(x.role)}, ${esc(x.company)}</h3><span style="color:var(--muted)">${esc(x.period)}</span><p>${esc(x.text)}</p>`)));
+} else {
+  $("expList").appendChild(el("article", "item empty", `<h3>Looking for my first role</h3><p>I’m a fresher and I’m looking for an internship where I can build real features and learn from a team.</p>`));
+}
+
+DATA.education.forEach(e => $("eduList").appendChild(el("div", "", `<div><strong>${esc(e.name)}</strong><br><span>${esc(e.school)}</span></div><span>${esc(e.note)}</span>`)));
+
+const contact = [
+  { label: "Email me", href: "mailto:" + DATA.email, primary: true },
+  { label: "GitHub", href: DATA.github },
+  { label: "LinkedIn", href: DATA.linkedin },
+  { label: "Résumé", href: DATA.resume }
+].filter(l => l.href);
+contact.forEach(l => { const a = el("a", "btn" + (l.primary ? " primary" : ""), esc(l.label)); a.href = l.href; if (!l.href.startsWith("mailto")) { a.target = "_blank"; a.rel = "noopener"; } $("contactLinks").appendChild(a); });
+$("yr").textContent = new Date().getFullYear();
+
+/* Hero: a small 2D scene with a bouncing football */
+(function () {
+  const c = $("pitch"), ctx = c.getContext("2d");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let w, h, t = 0;
+  const size = () => { const r = devicePixelRatio || 1; w = c.clientWidth; h = c.clientHeight; c.width = w * r; c.height = h * r; ctx.setTransform(r, 0, 0, r, 0, 0); };
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    const ground = h - 28, ink = css("--ink"), acc = css("--accent");
+    ctx.strokeStyle = acc; ctx.globalAlpha = .5; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(0, ground + 14); ctx.lineTo(w, ground + 14); ctx.stroke();
+    ctx.beginPath(); ctx.arc(w * .5, ground + 14, 46, Math.PI, 0); ctx.stroke(); ctx.globalAlpha = 1;
+    const x = w * .5 + Math.sin(t * .6) * (w * .32);
+    const y = ground - Math.abs(Math.sin(t * 2.2)) * 78;
+    const k = 1 - (ground - y) / 140;
+    ctx.fillStyle = ink; ctx.globalAlpha = .18;
+    ctx.beginPath(); ctx.ellipse(x, ground + 16, 18 * k, 4 * k, 0, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
+    ctx.save(); ctx.translate(x, y); ctx.rotate(t * 3);
+    ctx.fillStyle = css("--surface"); ctx.strokeStyle = ink; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(0, 0, 16, 0, 7); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = ink; ctx.beginPath();
+    for (let i = 0; i < 5; i++) { const a = i * 1.2566 - 1.5708; ctx[i ? "lineTo" : "moveTo"](Math.cos(a) * 7, Math.sin(a) * 7); }
+    ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+  function loop() { t += .016; draw(); requestAnimationFrame(loop); }
+  size(); addEventListener("resize", () => { size(); draw(); });
+  if (reduce) { t = 1.1; draw(); } else loop();
+})();
+</script>
+</body>
+</html>
