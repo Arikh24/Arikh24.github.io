@@ -65,6 +65,8 @@ footer{padding:64px 0 48px;color:var(--muted);font-size:.95rem}
 .w{display:inline-block;opacity:0;transform:translateY(.5em);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i)*90ms)}
 @keyframes rise{to{opacity:1;transform:none}}
 .now{margin:-8px 0 28px;font-weight:500}
+.now .lbl{display:block;color:var(--muted);font-size:.95rem}
+.now .line{display:block;min-height:1.7em;font-size:1.35rem}
 #typed{color:var(--accent);font-weight:600}
 .caret{display:inline-block;width:2px;height:1.1em;background:var(--accent);vertical-align:-.2em;margin-left:2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
@@ -104,7 +106,7 @@ h1{font-weight:700}
     <div class="hero">
       <h1 id="title">I build web apps from the database up.</h1>
       <p class="lede">I’m a Computer Science and Engineering student at AIUB, working with Next.js, NestJS and PostgreSQL.</p>
-      <p class="now">Right now I’m exploring <span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
+      <p class="now"><span class="lbl">Right now I’m exploring</span><span class="line"><span id="typed"></span><span class="caret" aria-hidden="true"></span></span></p>
       <div class="btns">
         <a class="btn primary" href="#projects">See my work</a>
         <a class="btn" href="#contact">Get in touch</a>
@@ -151,13 +153,13 @@ h1{font-weight:700}
 </div>
 
 <script>
-/* ===== EDIT YOUR CONTENT HERE ===== */
+/* ===== EDIT CONTENT HERE ===== */
 const DATA = {
   email: "arikhbin075@gmail.com",
   github: "https://github.com/Arikh24",
   linkedin: "https://www.linkedin.com/in/arikh-bin-eden/",
-  resume: "Resume.pdf", // upload your résumé PDF to the same GitHub repo with exactly this name. Set to "" to hide the button.
-  photo: "photo.jpg",      // upload a photo (for example photo.jpg) to the repo, then write its name here. Until then, your initials show.
+  resume: "Resume.pdf", 
+  photo: "photo.jpg",    
 
   skills: {
     "Languages": ["C++", "C#", "JavaScript", "SQL", "Assembly"],
@@ -255,7 +257,7 @@ const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
 /* Typing line */
 (function () {
   const out = $("typed"), words = ["Next.js", "NestJS", "PostgreSQL", "OpenGL", "C++"];
-  if (calm) { out.textContent = words[0]; return; }
+  
   let wi = 0, ci = 0, del = false;
   (function tick() {
     const word = words[wi];
@@ -307,14 +309,17 @@ const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
     for (let i = 0; i < 5; i++) { const a = i * 1.2566 - 1.5708; ctx[i ? "lineTo" : "moveTo"](Math.cos(a) * 7, Math.sin(a) * 7); }
     ctx.closePath(); ctx.fill(); ctx.restore();
   }
-  function loop() { t += .016; draw(); requestAnimationFrame(loop); }
+  let awake = !reduce, timer;
+  function wake() { awake = true; if (reduce) { clearTimeout(timer); timer = setTimeout(() => { awake = false; }, 2500); } }
+  function loop() { if (awake) { t += .016; draw(); } requestAnimationFrame(loop); }
   size(); tx = cx = w * .5;
   addEventListener("resize", () => { size(); tx = cx = w * .5; draw(); });
   c.style.cursor = "pointer";
-  c.addEventListener("pointermove", e => { tx = e.clientX - c.getBoundingClientRect().left; });
+  c.style.touchAction = "pan-y";
+  c.addEventListener("pointermove", e => { tx = e.clientX - c.getBoundingClientRect().left; wake(); });
   c.addEventListener("pointerleave", () => { tx = w * .5; });
-  c.addEventListener("pointerdown", () => { kick = 50; });
-  if (reduce) { t = 1.1; draw(); } else loop();
+  c.addEventListener("pointerdown", () => { kick = 50; wake(); });
+  t = 1.1; draw(); loop();
 })();
 </script>
 </body>
