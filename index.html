@@ -162,9 +162,9 @@ const DATA = {
   photo: "photo.jpg",    
 
   skills: {
-    "Languages": ["C++", "C#", "JavaScript", "SQL", "Assembly"],
-    "Web and backend": ["HTML", "CSS", "Next.js", "NestJS"],
-    "Databases": ["PostgreSQL", "MySQL"]
+    "Languages": ["C++", "C#", "TypeScript", "JavaScript"],
+    "Web and backend": ["Tailwind CSS", "NodeJS", "Next.js", "NestJS"],
+    "Databases": ["PostgreSQL", "SQL","MongoDB"]
   },
 
   /* Add new projects by copying one block. Keep the commas. */
@@ -174,6 +174,15 @@ const DATA = {
       text: "A short animated story told across four scenes, built with C++ and GLUT. You switch between the scenes with the keyboard.",
       tech: ["C++", "OpenGL", "GLUT"],
       github: "https://github.com/Arikh24/ComputerGrapics-Project",
+      demo: ""
+    }
+    {
+      title: "Gaari_Bhara",
+      text: "Built the Post and Catalog modules (13 REST endpoints): posts, public feed with filters, keyword search and pagination, admin
+hide/unhide.  Implemented secure image upload (content-based file-type check, random file names, row-lock transaction capping 5 images/post)
+and JWT role-based access control.  Wrote migrations, seed data and 108 end-to-end tests on a real database; documented the API with Swagger.",
+      tech: [NestJS, TypeScript, PostgreSQL, TypeORM, JWT, Swagger, Jest, Postman],
+      github: "github.com/sHADo-07/awt-project-gaari-bhara",
       demo: ""
     }
     /* ,{ title:"", text:"", tech:["",""], github:"", demo:"" } */
@@ -187,8 +196,6 @@ const DATA = {
 
   education: [
     { name: "B.Sc. in Computer Science and Engineering (ongoing)", school: "American International University-Bangladesh (AIUB)", note: "CGPA 3.17" },
-    { name: "Higher Secondary Certificate (HSC)", school: "Police Lines School and College", note: "GPA 5.00" },
-    { name: "Secondary School Certificate (SSC)", school: "Police Lines School and College", note: "GPA 4.94" }
   ]
 };
 /* ===== END OF EDITABLE CONTENT ===== */
